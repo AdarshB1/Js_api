@@ -64,7 +64,7 @@ function onEdit(td) {
 //After edit operation, we need to show updated data 
 function updateRecord(formData) {
 
-    selectedRow.cells[0].innerHTML = formData.emp_id;
+    // selectedRow.cells[0].innerHTML = formData.emp_id;
     selectedRow.cells[1].innerHTML = formData.fullName;
     selectedRow.cells[2].innerHTML = formData.age;
     selectedRow.cells[3].innerHTML = formData.gender;

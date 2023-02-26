@@ -1,8 +1,11 @@
 .employee-form {
-    border-style: solid;
+    border-style:inherit;
     /* margin-bottom: 10px; */
     /* margin-left: 10px; */
     padding: 10px;
+    background-color: aqua;
+    color: rgb(58, 32, 250);
+    border-radius: 8px;
     /* width: 50%; */
     margin: auto;
     width: 50%;
@@ -11,7 +14,10 @@
 }
 
 .employees-table {
-    border-style: solid;
+    border-style:inherit;
+    background-color: aqua;
+    color: rgb(58, 32, 250);
+    border-radius: 8px;
     /* margin-bottom: 10px; */
     /* margin-left: 10px; */
     padding: 20px;
@@ -54,7 +60,7 @@ input[type=text], input[type=number] {
 
 input[type=submit] {
     width: 30%;
-    background-color: black;
+    background-color: rgb(58, 32, 250);
     color: white;
     padding: 10px 18px;
     /* margin: 0px 0; */
@@ -69,13 +75,24 @@ input[type=submit] {
 
 form div.form-action-buttons{
     text-align: right;
+    
+}
+h1{
+    background-color: aqua;
+    margin: 0;
+    padding: auto;
+    color: rgb(58, 32, 250);
 }
 
 a{
     cursor: pointer;
     text-decoration: underline;
-    color: #0000ee;
+    color: #ee003f;
     margin-right: 4px;
+}
+body{
+    background-color: aquamarine;
+    margin-top: 1px;
 }
 
 label.validation-error{
