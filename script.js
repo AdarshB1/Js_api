@@ -1,9 +1,12 @@
-var selectedRow = null
+//gloaba variable to check row is null or not if null create record else update record
+var selectedRow = null;
+//global array to store id because it will carry even after remove from local
+let idArray = [];
 
 function onFormSubmit() {
     if (validate()) {                             //if validate true submit from
         var formData = readFormData();
-        if (selectedRow == null)                  //create new record
+        if (selectedRow == null && verifyId())                  //create new record
             insertNewRecord(formData);
         else                                      //update record
             updateRecord(formData);
@@ -17,7 +20,7 @@ function readFormData() {
     formData["emp_id"] = document.getElementById("femp_id").value;
     formData["fullName"] = document.getElementById("fname").value;
     formData["age"] = document.getElementById("fage").value;
-    formData["gender"] = document.getElementById("fgender").value;
+    formData["gender"] = document.getElementById("gender").value;
     return formData;
 }
 // 
@@ -46,7 +49,7 @@ function resetForm() {
     document.getElementById("femp_id").value = "";
     document.getElementById("fname").value = "";
     document.getElementById("fage").value = "";
-    document.getElementById("fgender").value = "";
+    document.getElementById("gender").value = "";
     selectedRow = null;
 }
 
@@ -56,7 +59,7 @@ function onEdit(td) {
     document.getElementById("femp_id").value = selectedRow.cells[0].innerHTML;
     document.getElementById("fname").value = selectedRow.cells[1].innerHTML;
     document.getElementById("fage").value = selectedRow.cells[2].innerHTML;
-    document.getElementById("fgender").value = selectedRow.cells[3].innerHTML;
+    document.getElementById("gender").value = selectedRow.cells[3].innerHTML;
 }
 //After edit operation, we need to show updated data 
 function updateRecord(formData) {
@@ -76,27 +79,29 @@ function onDelete(td) {
     }
 }
 
-function seterror(id, error) {
-    element = document.getElementById(id);
-    element.getElementsByClassName('nnnn')[0].innerHTML = error;
+//verify id not repeted
+function verifyId(){
+    let id= document.forms['myForm']["femp_id"].value;
+    if(id<0){
+        document.getElementById('posNO').style.display="block";
+    } else if(idArray.some((val) => val == id)){
+        document.getElementById('empError').style.display="block";
+        return false;
+    } else {
+        idArray.push(id);
+        document.getElementById('empError').style.display="none";
+        document.getElementById('posNO').style.display="none";
+        return true;
+    }
 }
 
 function validate() {
     isValid = true;
-    //performing validation and if validation false return isvalid false
-    // if (document.getElementById("fname").value == "") {
-    //     isValid = false;
-    //     document.getElementById("fullNameValidationError").classList.remove("hide");
-    // } else {
-    //     isValid = true;
-    //     if (!document.getElementById("fullNameValidationError").classList.contains("hide"))
-    //         document.getElementById("fullNameValidationError").classList.add("hide");
-    // }
-    
-    var nAge= document.forms['myForm']["fage"].value;
     
     //age validation
-    if(nAge > 19 && nAge < 60){
+    var nAge= document.forms['myForm']["fage"].value;
+    if(nAge >= 19 && nAge <= 60){
+        document.getElementById('ageError').style.display="none";
         isValid=true;
     } else {
         document.getElementById('ageError').style.display="block";        
@@ -109,8 +114,10 @@ function validate() {
     {
         document.getElementById('nameError').style.display="block";
         isValid=false;
+    } else {
+        document.getElementById('nameError').style.display="none";
+        
     }
-
 
     return isValid;
 }

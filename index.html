@@ -17,13 +17,14 @@
                     
                     <div>
                         <label>EMP_ID</label>
-                        <input type="text" name="emp_id" id="femp_id">
-                        <p class="formerror" id="empError" >Id aready exitst !</p>
+                        <input type="number" name="emp_id" id="femp_id" required> 
+                        <p class="formerror" id="empError" >Id aready exitst !</p> 
+                        <p class="formerror" id="posNO" >Emp Id must be positive No</p>
                     </div>
                     
                     <div>
-                        <label>Full Name</label><label class="validation-error hide" id="fullNameValidationError">This field is required.</label>
-                        <input type="text" name="fullName" id="fname">
+                        <label>Full Name</label>
+                        <input type="text" name="fullName" id="fname" required>
                         <p class="formerror" id="nameError" >Name only Alphabets !</p>
                     </div>
                     
@@ -36,9 +37,13 @@
                     
                     <div>
                         <label>Gender</label>
-                        <input type="text" name="gender" id="fgender">
+                        <select name="" id="gender" required>
+                            <option selected></option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                        </select>
                     </div>
-                                        
+
                     <div  class="form-action-buttons">
                         <input type="submit" value="Submit">
                     </div>
