@@ -18,21 +18,27 @@
                     <div>
                         <label>EMP_ID</label>
                         <input type="text" name="emp_id" id="femp_id">
+                        <p class="formerror" id="empError" >Id aready exitst !</p>
                     </div>
+                    
                     <div>
                         <label>Full Name</label><label class="validation-error hide" id="fullNameValidationError">This field is required.</label>
                         <input type="text" name="fullName" id="fname">
+                        <p class="formerror" id="nameError" >Name only Alphabets !</p>
                     </div>
-                    <!-- <div id="error"></div> -->
+                    
+                    
                     <div>
                         <label>Age</label>
-                        <input type="number" name="age" id="fage"><b><span class="formerror"></span></b>
+                        <input type="number" name="age" id="fage">
+                        <p class="formerror" id="ageError" >Age must be between 19 to 60 !</p>
                     </div>
-                    <div id="error"></div>
+                    
                     <div>
                         <label>Gender</label>
                         <input type="text" name="gender" id="fgender">
                     </div>
+                                        
                     <div  class="form-action-buttons">
                         <input type="submit" value="Submit">
                     </div>

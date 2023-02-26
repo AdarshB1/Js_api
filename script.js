@@ -78,7 +78,7 @@ function onDelete(td) {
 
 function seterror(id, error) {
     element = document.getElementById(id);
-    element.getElementsByClassName('formerror')[0].innerHTML = error;
+    element.getElementsByClassName('nnnn')[0].innerHTML = error;
 }
 
 function validate() {
@@ -94,17 +94,22 @@ function validate() {
     // }
     
     var nAge= document.forms['myForm']["fage"].value;
-    var error = document.getElementById('error');
-
-    if(nAge > 19 && nAge < 60)
-    {
+    
+    //age validation
+    if(nAge > 19 && nAge < 60){
         isValid=true;
     } else {
-        error.innerHTML="Age must be between 19 to 60";
-        error.style.display="block";
+        document.getElementById('ageError').style.display="block";        
         isValid=false;
     }
-    
+    //user name is alpha
+    var letters = /^[a-zA-Z]*$/;
+    var name= document.forms['myForm']["fname"].value;
+    if(!name.match(letters))
+    {
+        document.getElementById('nameError').style.display="block";
+        isValid=false;
+    }
 
 
     return isValid;
