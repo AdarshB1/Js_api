@@ -1,16 +1,13 @@
 pipeline {
     agent any
-    tools {
-        git 'Git'
-    }
- 
+     
     environment {
         NODEJS_HOME = tool 'NodeJS'
          SONARQUBE_SCANNER_HOME = tool 'SonarqubeScanner5.0.1'
     }
 
     stages {
-        stage('Checkout repo') {
+        stage('Checkout') {
             steps {
                 git branch: 'main',  // Adjust branch as needed
                     url: 'https://github.com/AdarshB1/react_eslint.git'  // Replace with your repo URL
