@@ -3,7 +3,7 @@ pipeline {
      
     environment {
         NODEJS_HOME = tool 'NodeJS'
-         SONARQUBE_SCANNER_HOME = tool 'SonarqubeScanner5.0.1'
+         SONARQUBE_SCANNER_HOME = tool 'SonarqubeScanner-5.0.1'
     }
 
     stages {
