@@ -10,7 +10,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 git branch: 'main',  // Adjust branch as needed
-                    url: 'https://github.com/AdarshB1/react_eslint.git'  // Replace with your repo URL
+                    url: 'https://github.com/AdarshB1/Js_api.git'  // Replace with your repo URL
             }
         }
  
